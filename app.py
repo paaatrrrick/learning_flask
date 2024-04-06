@@ -6,15 +6,22 @@ app = Flask(__name__)
 
 storage = []
 
-@app.route('/add', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def post():
     formData = dict(request.form)
     storage.append(formData)
-    return render_template('index.html', storage=storage)
+    print(storage)
+
+    return render_template('index.html')
+
+
+
+
+    
 
 @app.route('/')
 def index():
-    return render_template('index.html', storage=storage)
+    return render_template('index.html')
 
 @app.route('/about')
 def mike():
